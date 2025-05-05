@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+}
+.dropdown-container {
+  /* border: 2px solid brown; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.select {
+  max-width: 200px;
+  height: 25px;
+}
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

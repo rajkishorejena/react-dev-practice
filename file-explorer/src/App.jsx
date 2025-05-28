@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import React, { useState } from "react";
 
+import json from "./testData.json";
 function App() {
-  const [count, setCount] = useState(0)
+  const [data] = useState(json);
+
+  const List = ({ items }) => {
+    const [isExpanded, setIsExpanded] = useState({});
+
+    const toggleExpand = (item) => {
+      setIsExpanded((prev) => ({
+        ...prev,
+        [item.name]: !prev[item.name],
+      }));
+    };
+    return (
+      <div className="list-container">
+        {items.map((item, index) => {
+          return (
+            <div key={index} className="item">
+              {item.isFolder && <span className="folder-icon">📁</span>}
+              {!item.isFolder && <span className="file-icon">📄</span>}
+              <span className="file-name">{item.name}</span>
+              {item.isFolder && (
+                <span
+                  onClick={() => toggleExpand(item)}
+                  className="expand-icon"
+                >
+                  {isExpanded[item.name] ? "🔼" : "🔽"}
+                </span>
+              )}
+              {item.isFolder && <span className="add-file">➕</span>}
+              {/* {<span className="remove-file">➖</span>} */}
+              {isExpanded[item.name] &&
+                item.children &&
+                item.children.length > 0 && <List items={item.children} />}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2>Frontend React Machine Coding Round : File Explorer</h2>
+      <List items={data} />
+      <div></div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

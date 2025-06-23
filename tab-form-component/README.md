@@ -1,4 +1,4 @@
 
-Tab Form Component (Myntra, Zepto) - Frontend Interview Question using React
+Machine Coding Round Question : Tab Form Component (Myntra, Zepto) - Frontend Interview Question using React
 
-<img width="727" alt="Screenshot 2025-06-24 at 12 43 10 AM" src="https://github.com/user-attachments/assets/d97a3b67-85a7-4b81-8e19-07057ed65baf" />
+<img width="764" alt="Screenshot 2025-06-24 at 12 45 22 AM" src="https://github.com/user-attachments/assets/15f020df-544d-4d2f-a170-ea3a7e92b091" />
